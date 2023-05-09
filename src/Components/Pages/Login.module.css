@@ -1,0 +1,18 @@
+img {
+  height: 60vh;
+}
+.img {
+  width: 50%;
+}
+.form {
+  height: 300px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  outline: none;
+}

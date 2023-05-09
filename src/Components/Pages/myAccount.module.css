@@ -1,0 +1,24 @@
+.myAccount {
+  width: 80vw;
+}
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.navbar ul {
+  display: flex;
+}
+
+.navbar ul svg {
+  height: 32px;
+}
+
+.navbar li {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

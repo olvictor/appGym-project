@@ -1,0 +1,16 @@
+.register__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+form {
+  height: auto;
+  text-align: left;
+}
+
+.register__namespot {
+  display: flex;
+  gap: 10px;
+}

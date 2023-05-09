@@ -1,0 +1,50 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100vw;
+  padding: 0px 50px;
+  box-shadow: 0px 1px 1px rgba(187, 187, 187, 0.1);
+  align-items: center;
+  height: 5rem;
+}
+svg {
+  font-size: 3rem;
+  color: #fff;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.list li {
+  padding: 10px;
+}
+
+.list a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+:global(.active) {
+  background-color: hsl(235, 21%, 21%);
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.userArea {
+  display: flex;
+  text-align: center;
+  height: 100%;
+  justify-content: center;
+  width: 100px;
+}
+
+.userArea svg {
+  height: 2rem;
+}

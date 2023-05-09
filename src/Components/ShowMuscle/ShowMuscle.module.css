@@ -1,0 +1,29 @@
+.showExercise__content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 80%;
+  margin-top: 50px;
+}
+
+.muscle__card {
+  background-color: #fff;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.muscle__card img {
+  border-radius: 20px;
+}
+
+.muscle__card__espec {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  align-items: center;
+}
+
+.muscle__card__espec span {
+  color: hsl(235, 21%, 21%);
+  font-weight: bolder;
+}
