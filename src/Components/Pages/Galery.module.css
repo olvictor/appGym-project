@@ -1,0 +1,19 @@
+.Galery {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+
+.cardPhoto {
+  max-height: 200px;
+
+}
+
+.cardPhoto img {
+  width: auto;
+  height: 200px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px 1px hsl(235, 21%, 31%);
+}

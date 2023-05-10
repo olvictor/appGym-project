@@ -73,21 +73,21 @@ const Exercises = () => {
     <table border='1'>
   <tr>
     {days.map((day)=>(
-      <th>{day}</th>
+      <th key={day}>{day}</th>
     ))}
   </tr>
   <td>
-   <tr> Alfreds Futterkiste</tr>
+   <tr>Alfreds Futterkiste</tr>
    <tr>Maria Anders</tr> 
    <tr>Germany</tr>
   </td>
   <td>
-   <tr> Alfreds Futterkiste</tr>
+   <tr>Alfreds Futterkiste</tr>
    <tr>Maria Anders</tr> 
    <tr>Germany</tr>
   </td>
-  <td>asasopások</td>
-  <td>asasopások</td>
+  <td></td>
+  <td></td>
 </table>
   </section>;
 };

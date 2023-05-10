@@ -20,7 +20,7 @@ const Myaccount = () => {
   if (!login) return null;
   return (
     <section className={styles.myAccount}>
-      <navbar className={styles.navbar}>
+      <nav className={styles.navbar}>
         <ul>
           <NavLink to={"/myaccount/user"} end>
             <li>
@@ -52,12 +52,12 @@ const Myaccount = () => {
               <span>Photo</span>
             </li>
           </NavLink>
-          <li onClick={userLogout}>
+          {/* <li onClick={userLogout}>
             <FiLogOut />
             <span>Logout</span>
-          </li>
+          </li> */}
         </ul>
-      </navbar>
+      </nav>
       <Routes>
         <Route path="user" element={<User />}></Route>
         <Route path="PhotoPost" element={<PhotoPost />}></Route>

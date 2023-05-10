@@ -1,6 +1,7 @@
 .myAccount {
   width: 80vw;
 }
+
 .navbar {
   display: flex;
   justify-content: flex-end;
@@ -12,7 +13,7 @@
 }
 
 .navbar ul svg {
-  height: 32px;
+  height: 20px;
 }
 
 .navbar li {
@@ -21,4 +22,10 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.navbar :global(.active) {
+  background-color: hsl(235, 21%, 21%);
+  color: hsl(235, 21%, 21%);
+  border-radius: 2px;
 }
