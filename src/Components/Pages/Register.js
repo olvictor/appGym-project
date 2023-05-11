@@ -7,7 +7,7 @@ import UseForm from "../Hooks/UseForm";
 import { USER_POST } from "../../Api";
 import UseFetch from "../Hooks/UseFetch";
 import Error from "../Tools/Error";
-
+import registerBackground from '../../img/gym_entrance.jpg'
 const Register = () => {
   const firstName = UseForm();
   const secondName = UseForm();
@@ -40,11 +40,12 @@ const Register = () => {
   return (
     <section className={styles.register__content}>
       <Head title="Register" />
+      <img src={registerBackground}  alt="Gym entrance background"/>
       <form onSubmit={handleSubmit}>
         <h1>CREATE ACCOUNT</h1>
+        <hr />
         <div className={styles.register__namespot}>
           <div>
-            <label>First Name</label>
             <Input
               type="text"
               placeholder="Enter your First name"
@@ -52,7 +53,6 @@ const Register = () => {
             />
           </div>
           <div>
-            <label>Last Name</label>
             <Input
               type="text"
               placeholder="Enter your Last name"
@@ -60,16 +60,9 @@ const Register = () => {
             />
           </div>
         </div>
-
-        <label>Username</label>
-        <Input type="text" placeholder="Enter Your Username" {...username} />
-
-        <label>Email</label>
-        <Input type="email" placeholder="Enter Your Username" {...email} />
-
-        <label>Password</label>
-        <Input type="password" placeholder="Enter Password" {...password} />
-
+        <Input type="text" placeholder="Username" {...username} />
+        <Input type="email" placeholder="Enter Your Email" {...email} />
+        <Input type="password" placeholder="Password" {...password} />
         <span>
           have an account?
           <Link to="/login">Sign in</Link>

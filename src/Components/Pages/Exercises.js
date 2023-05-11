@@ -9,7 +9,7 @@ const Exercises = () => {
   const [quinta,setQuinta] = useState([]);
   const [sexta,setSexta] = useState([]);
   const [sabado,setSabado] = useState([]);
-  const [domingo,setdomingo] = useState([]);
+  const [domingo,setDomingo] = useState([]);
   const [days,setDays] = useState(['Segunda','Terça','Quarta','Quinta','Sexta','Sabado','Domingo'])
   const [weekDay, setWeekDay] = useState(null);
   const [muscle,setMuscle] = useState(null);
@@ -17,25 +17,39 @@ const Exercises = () => {
   const handleSubmit = (e) =>{
     e.preventDefault()
 
+let diaDaSemana = weekDay;
+let setFunction;
 
-    let day = weekDay;
+switch (diaDaSemana) {
+  case 'domingo':
+    setFunction = setDomingo([...domingo, muscle]);
+    break;
+  case 'segunda':
+    setFunction = setSegunda([...segunda, muscle]);
+    break;
+  case 'terça':
+    setFunction = setTerça([...terça, muscle]);
+    break;
+  case 'quarta':
+    setFunction = setQuarta([...quarta, muscle]);
+    break;
+  case 'quinta':
+    setFunction = setQuinta([...quinta, muscle]);
+    break;
+  case 'sexta':
+    setFunction = setSexta([...sexta, muscle]);
+    break;
+  case 'sabado':
+    setFunction = setSabado([...sabado, muscle]);
+    break;
+  default:
+    setFunction = "Dia inválido";
+}
 
-    switch(day){
-      case segunda:
-        setSegunda([...segunda,muscle]);
-        break;
-          case terça:
-            setTerça([...terça,muscle]);
-            break;
-              case quarta:
-              setQuarta([...quarta,muscle]);
-              break;
-      }
-    console.log(segunda,terça,quarta);
-  }
+
+}
   
-
-  return <section className={styles.contentExercises}>
+    return <section className={styles.contentExercises}>
    <TypeAnimation
           sequence={["", 1000, "Your training ! "]}
           wrapper="p"
@@ -71,23 +85,50 @@ const Exercises = () => {
     </form>
 
     <table border='1'>
-  <tr>
-    {days.map((day)=>(
-      <th key={day}>{day}</th>
-    ))}
-  </tr>
+      <thead>
+    <tr>
+      {days.map((day,index)=>(
+        <th key={index}>{day}</th>
+      ))}
+    </tr>
+  </thead>
+ <tbody>
   <td>
-   <tr>Alfreds Futterkiste</tr>
-   <tr>Maria Anders</tr> 
-   <tr>Germany</tr>
+  {segunda && segunda.map((treino ,index)=>(
+   <p key={index}>{treino}</p>
+  ))}
   </td>
   <td>
-   <tr>Alfreds Futterkiste</tr>
-   <tr>Maria Anders</tr> 
-   <tr>Germany</tr>
+  {terça && terça.map((treino ,index)=>(
+   <p key={index}>{treino}</p>
+  ))}
   </td>
-  <td></td>
-  <td></td>
+  <td> 
+  {quarta && quarta.map((treino ,index)=>(
+   <p key={index}>{treino}</p>
+  ))}
+   </td>
+  <td> 
+  {quinta && quinta.map((treino ,index)=>(
+   <p key={index}>{treino}</p>
+  ))}
+  </td>
+  <td> 
+  {sexta && sexta.map((treino ,index)=>(
+   <p key={index}>{treino}</p>
+  ))}
+  </td>
+  <td> 
+  {sabado && sabado.map((treino ,index)=>(
+   <p key={index}>{treino}</p>
+  ))}
+  </td>
+  <td> 
+  {domingo && domingo.map((treino ,index)=>(
+   <p key={index}>{treino}</p>
+  ))}
+  </td>
+   </tbody>
 </table>
   </section>;
 };
