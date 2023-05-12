@@ -41,7 +41,7 @@ const Register = () => {
     <section className={styles.register__content}>
       <Head title="Register" />
       <img src={registerBackground}  alt="Gym entrance background"/>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={styles.formRegister}>
         <h1>CREATE ACCOUNT</h1>
         <hr />
         <div className={styles.register__namespot}>

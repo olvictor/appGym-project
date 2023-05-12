@@ -10,7 +10,7 @@
   height: 370px;
 }
 
-form {
+.formRegister {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -34,36 +34,36 @@ hr {
   margin-top: 10px;
 }
 
-form input {
+.formRegister input {
   height: 40px;
   border: 1px solid #bcb7b9;
 }
 
-form input::placeholder {
+.formRegister input::placeholder {
   color: #9da7b1;
   padding: 6px;
 }
 
-form input:focus {
+.formRegister input:focus {
   border-left: none;
   border-top: none;
   border-right: none;
   border-bottom: 1px solid hsl(200, 50%, 50%);
 }
 
-form span {
+.formRegister span {
   display: flex;
   gap: 6px;
   margin: 10px 0px
 }
 
-form a {
+.formRegister a {
   color: hsl(200, 50%, 50%);
   font-weight: bolder;
 }
 
 
-form button {
+.formRegister button {
   background-color: hsl(200, 50%, 50%);
   border: none;
   width: 30%;
@@ -76,6 +76,6 @@ form button {
   align-self: flex-start;
 }
 
-form button:hover {
+.formRegister button:hover {
   background-color: hsl(200, 50%, 40%)
 }

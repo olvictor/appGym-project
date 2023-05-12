@@ -4,23 +4,26 @@ function ShowMuscle({ targetMuscle }) {
   const [muscleExercise, setMuscleExercise] = useState(null);
 
   useEffect(() => {
-    const options = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": "52b2bef0b1msh7a3c3d95569cc0bp16bb3bjsnb4948159ced3",
-        "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
-      },
-    };
-
-    fetch(
-      `https://exercisedb.p.rapidapi.com/exercises/target/${targetMuscle}`,
-      options
-    )
-      .then((response) => response.json())
-      .then((response) => setMuscleExercise(response))
-      .catch((err) => console.error(err));
+    const getexercByMuscle = async() =>{
+      const url = `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${targetMuscle}`;
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': 'f1c6fe8ad9msh54f8722877ef276p13b3bfjsn2b3b8d943027',
+          'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
+        }
+      };
+      
+      try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        setMuscleExercise(result);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getexercByMuscle()
   }, [targetMuscle]);
-  console.log(muscleExercise);
   return (
     <div className={styles.showExercise__content}>
       {muscleExercise &&

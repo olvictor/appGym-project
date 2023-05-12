@@ -1,18 +1,84 @@
+.containerLogin {
+  display: grid;
+  background-color: red;
+  grid-template-columns: 1fr 1fr;
+}
+
+
 img {
   height: 60vh;
 }
-.img {
-  width: 50%;
-}
-.form {
-  height: 300px;
+
+.img img {
+  grid-column: 1/2;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
-label {
+.formLogin {
+  grid-column: 2/3;
+  background-color: hsl(235, 21%, 21%);
+  height: 100%;
+  color: #fff;
+  text-align: left;
   display: flex;
   flex-direction: column;
+  padding: 10px;
+  justify-content: center;
 }
 
-input {
+
+.formLogin input {
   outline: none;
+  width: 100%;
+  height: 30px;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.formLogin input:focus {
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border: none;
+  border-bottom: 2px solid aquamarine;
+
+}
+
+.formLogin input::placeholder {
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.formLogin button {
+  border: none;
+  width: 40%;
+  padding: 10px;
+  background-color: aquamarine;
+  color: #fff;
+  font-weight: bolder;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+.formLogin button:hover {
+  color: hsl(235, 21%, 21%);
+}
+
+.formLogin a {
+  text-decoration: none;
+  color: aquamarine;
+}
+
+.inputAreaLogin {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 30px 0px
+}
+
+.formLogin hr {
+  background-color: aquamarine;
 }

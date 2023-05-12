@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from './Exercises.module.css';
 import { TypeAnimation } from "react-type-animation";
+import ShowMuscle from "../ShowMuscle/ShowMuscle";
 
 const Exercises = () => {
   const [segunda,setSegunda] = useState([]);
@@ -13,6 +14,32 @@ const Exercises = () => {
   const [days,setDays] = useState(['Segunda','Terça','Quarta','Quinta','Sexta','Sabado','Domingo'])
   const [weekDay, setWeekDay] = useState(null);
   const [muscle,setMuscle] = useState(null);
+
+  const [listTargetMuscles, setListTargetMuscles] = useState([]);
+  const [targetMuscle, setTargetMuscle] = useState(null);
+  
+  useEffect(() => {
+    const getTargetMuscley =async() =>{
+      const url = 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList';
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': 'f1c6fe8ad9msh54f8722877ef276p13b3bfjsn2b3b8d943027',
+          'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
+        }
+      };
+      
+      try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        setListTargetMuscles(result);
+      } catch (error) {
+        console.error(error);
+      }
+  }
+  getTargetMuscley()
+ }, []);
+console.log(!! targetMuscle)
 
   const handleSubmit = (e) =>{
     e.preventDefault()
@@ -48,7 +75,6 @@ switch (diaDaSemana) {
 
 
 }
-  
     return <section className={styles.contentExercises}>
    <TypeAnimation
           sequence={["", 1000, "Your training ! "]}
@@ -129,7 +155,20 @@ switch (diaDaSemana) {
   ))}
   </td>
    </tbody>
-</table>
+    </table>
+    {listTargetMuscles && 
+      <div className={styles.targetMuscles}>
+        <h2>You can find exercise by muscle :</h2>
+        <select defaultValue='0' onChange={(e)=>{
+          if(e.target.value !== '0')setTargetMuscle(e.target.value)
+        }}>
+          <option value='0'>Muscle</option>
+        {listTargetMuscles.map((muscle, index)=>(
+          <option value={muscle} key={index}>{muscle}</option>
+        ))}
+        </select>
+      </div>}
+      {targetMuscle && <ShowMuscle targetMuscle={targetMuscle} />}
   </section>;
 };
 
