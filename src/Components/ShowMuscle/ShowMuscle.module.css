@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  width: 80%;
+  width: 100%;
   margin-top: 50px;
 }
 
@@ -10,10 +10,12 @@
   background-color: #fff;
   border-radius: 20px;
   text-align: center;
+  height: 450px
 }
 
 .muscle__card img {
   border-radius: 20px;
+  height: 60%;
 }
 
 .muscle__card__espec {

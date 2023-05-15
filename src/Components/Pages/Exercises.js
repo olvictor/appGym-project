@@ -84,7 +84,7 @@ switch (diaDaSemana) {
           style={{ fontSize: "2rem", display: "inline-block", color: "#fff" }}
   />
     <form className={styles.exercisesForm} onSubmit={handleSubmit}>
-      <h3>Build your training |</h3>
+      <h3>Build your training | </h3>
       <h4>Select a day:</h4>
       <select onChange={(e)=>setWeekDay(e.target.value)} defaultValue='0'>
       <option value='0'>Day</option>

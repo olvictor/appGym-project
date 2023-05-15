@@ -7,7 +7,7 @@ import UseForm from "../Hooks/UseForm";
 import { USER_POST } from "../../Api";
 import UseFetch from "../Hooks/UseFetch";
 import Error from "../Tools/Error";
-import registerBackground from '../../img/gym_entrance.jpg'
+import registerBackground from '../../img/login-background.jpg'
 const Register = () => {
   const firstName = UseForm();
   const secondName = UseForm();
