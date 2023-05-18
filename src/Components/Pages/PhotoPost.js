@@ -46,10 +46,11 @@ const PhotoPost = () => {
           repeat={0}
           style={{ fontSize: "2rem", display: "inline-block", color: "#fff" }}
         />
-        <Input type="text" label="Name" name="Name" {...nome} />
-        <Input type="date" label="date" name="date" {...date} />
-        <Input type="number" label="peso" name="peso" {...peso} />
-        <Input type="number" label="idade" name="idade" {...idade} />
+        <hr/>
+        <Input type="text" placeholder="Name" name="Name" {...nome} />
+        <Input type="date" placeholder="date" name="date" {...date} />
+        <Input type="number" placeholder="Peso ex: 75.6" name="peso" {...peso} />
+        <Input type="number" placeholder="idade" name="idade" {...idade} />
         <input
           type="file"
           label="Select Your Photo :"
@@ -57,7 +58,7 @@ const PhotoPost = () => {
           id="img"
           onChange={handleImgChange}
         />
-        {loading ? <button disabled>Post...</button> : <button>Post</button>}
+        {loading ? <button disabled>Post...</button> : <button>Faça seu Post</button>}
         <Error error={error} />
       </form>
     </section>

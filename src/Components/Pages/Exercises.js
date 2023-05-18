@@ -76,13 +76,7 @@ switch (diaDaSemana) {
 
 }
     return <section className={styles.contentExercises}>
-   <TypeAnimation
-          sequence={["", 1000, "Your training ! "]}
-          wrapper="p"
-          cursor={true}
-          repeat={0}
-          style={{ fontSize: "2rem", display: "inline-block", color: "#fff" }}
-  />
+   
     <form className={styles.exercisesForm} onSubmit={handleSubmit}>
       <h3>Build your training | </h3>
       <h4>Select a day:</h4>

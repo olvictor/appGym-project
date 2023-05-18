@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Head from "../../Head";
 import runningIMG from "../../img/bg.png";
 import styles from "./Home.module.css";
 import { Link } from "react-router-dom";
-import ShowMuscle from "../ShowMuscle/ShowMuscle";
 import { TypeAnimation } from "react-type-animation";
 
 const Home = () => {
 
   return (
-    <div>
+    <section>
       <Head title="Home" />
       <div className={styles.main__content}>
         <div className={styles.main__text + " animeDown"}>
@@ -27,14 +26,16 @@ const Home = () => {
           </p>
           <Link to="/login">Join now</Link>
         </div>
+        <div className={styles.img}>
         <img
           className={styles.mainIMG + ` animeRigth`}
           src={runningIMG}
           al="Gym background"
           alt='Background gym home'
         />
+        </div>
       </div>  
-       </div>
+       </section>
   );
 };
 
