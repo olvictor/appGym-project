@@ -8,9 +8,9 @@
 
 .formUser{
         width: 30rem;
+        height: 100%;
         background-color: hsl(235, 21%, 31%);
         padding: 30px;
-        height: 70vh;
         color: #fff;
         font-weight: bolder;
         display: flex;
@@ -18,9 +18,9 @@
         gap: 16px;
         border-radius: 8px;
         text-align: center;
-        grid-area: 2/3;
+        grid-column: 2/3;
+        grid-row: 1;
 }
-
 .formUser label {
     text-align: left;
     margin: 4px 0;
@@ -79,3 +79,24 @@
     color: hsl(200, 50%, 50%);
   }
   
+  .userInfo{
+    grid-column: 1/2;
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    grid-row: 1;
+    background-color: hsl(235, 21%, 31%);
+  }
+
+  .userInfo input{
+    outline: none;
+    border: none;
+    height: 2.2rem;
+    width: 50%;
+    border-radius: 4px;
+    background-color: hsl(235, 21%, 21%);
+    color: #fff;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+    padding:10px;
+  }
