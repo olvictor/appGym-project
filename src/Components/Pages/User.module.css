@@ -100,3 +100,13 @@
     box-sizing: border-box;
     padding:10px;
   }
+  
+  .meterKcal{
+    height: 50px;
+    width: 130px;
+    border-radius: 50%;
+    border: 8px solid #ccc;
+  }
+
+
+  
