@@ -55,7 +55,6 @@ const User = () => {
 
   }
 
-  console.log(kcal)
 
 
   return <section className={styles.section}>

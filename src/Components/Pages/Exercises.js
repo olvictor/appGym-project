@@ -37,44 +37,70 @@ const Exercises = () => {
         console.error(error);
       }
   }
+  const getWorkouts = () =>{
+      const monday = JSON.parse(localStorage.getItem('segunda'));
+      const tuesday = JSON.parse(localStorage.getItem('terça'))
+      const wednesday = JSON.parse(localStorage.getItem('quarta'))
+      const thursday = JSON.parse(localStorage.getItem('quinta'))
+      const friday = JSON.parse(localStorage.getItem('sexta'))
+      const saturday = JSON.parse(localStorage.getItem('sabado'))
+      const sunday = JSON.parse(localStorage.getItem('domingo'))
+
+      if(monday)setSegunda(monday)
+      if(tuesday)setTerça(tuesday)
+      if(wednesday)setQuarta(wednesday)
+      if(thursday)setQuinta(thursday)
+      if(friday)setSexta(friday)
+      if(saturday)setSabado(saturday)
+      if(sunday)setDomingo(sunday)
+  }
   getTargetMuscley()
+  getWorkouts();
  }, []);
-console.log(!! targetMuscle)
 
+ useEffect(()=>{
+  if(segunda.length > 0)localStorage.setItem('segunda',JSON.stringify(segunda))
+  if(terça.length > 0)localStorage.setItem('terça',JSON.stringify(terça))
+  if(quarta.length > 0)localStorage.setItem('quarta',JSON.stringify(quarta))
+  if(quinta.length > 0)localStorage.setItem('quinta',JSON.stringify(quinta))
+  if(sexta.length > 0)localStorage.setItem('sexta',JSON.stringify(sexta))
+  if(sabado.length > 0)localStorage.setItem('sabado',JSON.stringify(sabado))
+  if(domingo.length > 0)localStorage.setItem('domingo',JSON.stringify(domingo))
+ },[quinta,terça,quarta,quinta,sexta,sabado,domingo])
   const handleSubmit = (e) =>{
-    e.preventDefault()
+      e.preventDefault()
 
-let diaDaSemana = weekDay;
-let setFunction;
+  let diaDaSemana = weekDay;
+  let setFunction;
 
-switch (diaDaSemana) {
-  case 'domingo':
-    setFunction = setDomingo([...domingo, muscle]);
-    break;
-  case 'segunda':
-    setFunction = setSegunda([...segunda, muscle]);
-    break;
-  case 'terça':
-    setFunction = setTerça([...terça, muscle]);
-    break;
-  case 'quarta':
-    setFunction = setQuarta([...quarta, muscle]);
-    break;
-  case 'quinta':
-    setFunction = setQuinta([...quinta, muscle]);
-    break;
-  case 'sexta':
-    setFunction = setSexta([...sexta, muscle]);
-    break;
-  case 'sabado':
-    setFunction = setSabado([...sabado, muscle]);
-    break;
-  default:
-    setFunction = "Dia inválido";
-}
+  switch (diaDaSemana) {
+    case 'domingo':
+      setFunction = setDomingo([...domingo, muscle]);
+      break;
+    case 'segunda':
+      setFunction = setSegunda([...segunda, muscle]);
+      break;
+    case 'terça':
+      setFunction = setTerça([...terça, muscle]);
+      break;
+    case 'quarta':
+      setFunction = setQuarta([...quarta, muscle]);
+      break;
+    case 'quinta':
+      setFunction = setQuinta([...quinta, muscle]);
+      break;
+    case 'sexta':
+      setFunction = setSexta([...sexta, muscle]);
+      break;
+    case 'sabado':
+      setFunction = setSabado([...sabado, muscle]);
+      break;
+    default:
+      setFunction = "Dia inválido";
+  }
 
 
-}
+  }
     return <section className={styles.contentExercises}>
    
     <form className={styles.exercisesForm} onSubmit={handleSubmit}>
@@ -100,6 +126,7 @@ switch (diaDaSemana) {
         <option value='perna'>Perna</option>
         <option value='ombro'>Ombro</option>
         <option value='gluteo'>Glúteo</option>
+        <option value='cardio'>Cardio</option>
       </select>
       <button>Register</button>
     </form>

@@ -5,15 +5,11 @@
   flex-wrap: wrap;
 }
 
-
-.cardPhoto {
-  max-height: 200px;
-
+.Galery img:hover{
+  opacity: 0.4;
 }
 
-.cardPhoto img {
-  width: auto;
-  height: 200px;
-  cursor: pointer;
-  box-shadow: 1px 1px 1px 1px hsl(235, 21%, 31%);
+.Galery img:hover + teste{
+  display: inline-block;
+  color: white;
 }

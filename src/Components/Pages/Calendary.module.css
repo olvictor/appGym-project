@@ -1,0 +1,62 @@
+.calendarySection{
+    display: flex;
+    flex-direction: column;
+}
+
+.calendaryInfo{
+ display: flex;
+ margin-top: 50px;
+}
+.infoCards{
+    display: flex;
+    flex-wrap: wrap;
+    gap:10px;
+    width: 70%;
+}
+.calendaryCard{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    height: 200px;
+    width: 150px;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+}
+.calendaryCard::before{
+    content: '';
+    width: 150px;
+    height: 20px;
+    background-color: hsl(200, 50%, 50%);
+    position: absolute;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    top: 0px;
+}
+
+.cardMonth{
+    position:absolute;
+    top: 0px;
+    color: #fff;
+}
+.cardDate{
+    font-size: 2.5rem;
+    color: hsl(200, 50%, 50%);
+}
+.cardDate span{
+font-size: 1.8rem;
+color: black;
+}
+.cardWorkout{
+    position:absolute;
+    bottom: 10px;
+    height: 30px;
+    max-width: 150px;
+    margin-bottom: 5px;
+    justify-content: center;
+}
+
+
