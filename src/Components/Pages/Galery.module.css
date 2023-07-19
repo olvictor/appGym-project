@@ -4,12 +4,15 @@
   gap: 20px;
   flex-wrap: wrap;
 }
-
-.Galery img:hover{
-  opacity: 0.4;
+img{
+  transition: .3s ease-in-out;
 }
 
-.Galery img:hover + teste{
-  display: inline-block;
-  color: white;
+.Galery img:hover{
+  opacity: 0.4
+}
+
+i{
+  pointer-events: none;
+  opacity: 0.4
 }
