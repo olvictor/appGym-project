@@ -6,7 +6,6 @@ import UserContext from "../../UserContext";
 import { Galleria } from 'primereact/galleria';
 import styles  from './Galery.module.css'
 import { Image } from 'primereact/image';
-import 'primereact/resources/themes/lara-light-indigo/theme.css'; //theme
 import 'primereact/resources/primereact.min.css'; //core css
 import 'primeicons/primeicons.css'; //icons
 
@@ -25,7 +24,6 @@ const itemTemplate = (item) => {
 }
 
 const thumbnailTemplate = (item) => {
-  console.log(item)
     return <img src={item.thumbnailImageSrc} alt={item.alt} style={{ display: 'block' }} />;
 }
 

@@ -20,13 +20,13 @@ const Header = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="contact">Contact</NavLink>
+          <NavLink to="contact">Contato</NavLink>
         </li>
         <li>
-          <NavLink to="training">Training</NavLink>
+          <NavLink to="training">Treino</NavLink>
         </li>
         <li>
-          <NavLink to="about">About</NavLink>
+          <NavLink to="about">Sobre</NavLink>
         </li>
 
         <div className={styles.userArea}  onClick={()=>setActive(!active)}>

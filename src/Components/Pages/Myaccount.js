@@ -31,25 +31,25 @@ const Myaccount = () => {
           <NavLink to={"/myaccount/exercises"}>
             <li>
               <IoIosFitness />
-              <span>Exercises</span>
+              <span>Exercícios</span>
             </li>
           </NavLink>
           <NavLink to={"/myaccount/calendary"}>
             <li>
               <BsFillCalendarCheckFill />
-              <span>Calendar</span>
+              <span>Calendário</span>
             </li>
           </NavLink>
           <NavLink to={"/myaccount/galery"}>
             <li>
               <HiOutlinePhoto />
-              <span>Galery</span>
+              <span>Galeria</span>
             </li>
           </NavLink>
           <NavLink to={"/myaccount/photoPost"}>
             <li>
               <MdAddAPhoto />
-              <span>Photo</span>
+              <span>Postar Foto</span>
             </li>
           </NavLink>
           {/* <li onClick={userLogout}>

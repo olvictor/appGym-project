@@ -1,19 +1,37 @@
 import React, { useEffect, useState } from "react";
 import styles from './Calendary.module.css';
-
+import { MultiSelect } from 'primereact/multiselect';
+import 'primereact/resources/primereact.min.css'; //core css
+import 'primeicons/primeicons.css'; //icons
+import { IoIosFitness } from "react-icons/io";
 
 const Calendary = () => {
 
+  const [selectedTreinos, setSelectedTreinos] = useState(null);
+
+  
+
+  const treinos =[
+    {nome: 'Peito'},
+    {nome: 'Triceps'},
+    {nome: 'Perna'},
+    {nome: 'Costa'},
+    {nome: 'Ombro'},
+    {nome: 'Biceps'},
+    {nome: 'Abdomen'},
+  ]
   const [workout,setWorkout] = useState([])
   const [workouts,setWorkouts] = useState([]);
-  const [seeMore,setSeeMore] = useState(false);
-  const chestWorkout = workouts.filter((item)=> item.workout.includes('peito'));
-  const bicepsWorkout = workouts.filter((item)=> item.workout.includes('biceps'));
-  const tricepsWorkout = workouts.filter((item)=> item.workout.includes('triceps'));
-  const backWorkout = workouts.filter((item)=> item.workout.includes('costa'));
-  const cardioWorkout = workouts.filter((item)=> item.workout.includes('cardio'));
-  const legsWorkout = workouts.filter((item)=> item.workout.includes('perna'));
-  const ombroWorkout = workouts.filter((item)=> item.workout.includes('ombro'));
+  // const [seeMore,setSeeMore] = useState(false);
+  // const chestWorkout = workouts.filter((item)=> item.workout.includes('Peito'));
+  // const bicepsWorkout = workouts.filter((item)=> item.workout.includes('Biceps'));
+  // const tricepsWorkout = workouts.filter((item)=> item.workout.includes('Triceps'));
+  // const backWorkout = workouts.filter((item)=> item.workout.includes('Costa'));
+  // const cardioWorkout = workouts.filter((item)=> item.workout.includes('Cardio'));
+  // const legsWorkout = workouts.filter((item)=> item.workout.includes('Perna'));
+  // const ombroWorkout = workouts.filter((item)=> item.workout.includes('Ombro'));
+  // const abdmoenWorkout = workouts.filter((item)=> item.workout.includes('Abdomen'));
+
 
 
   const handleSubmit = (e) =>{
@@ -26,106 +44,44 @@ const Calendary = () => {
       date:
       day,
       Hour,
-      Month
-      ,
-      workout
+      Month,
+      selectedTreinos
     }
    setWorkouts([...workouts, training])
-  }
-  useEffect(()=>{
+  }  
+   useEffect(()=>{
     const getWorkout = JSON.parse(localStorage.getItem('workout'));
     if(getWorkout)setWorkouts(getWorkout)
-
-  },[])
+    },[])
   useEffect(()=>{
     if(workouts.length > 0) localStorage.setItem('workout',JSON.stringify(workouts))
   },[workouts])
 
   return (  
-    <section className={styles.calendarySection}>
-      <form onSubmit={handleSubmit}> 
-        <h3>Register your train </h3>
-        <select defaultValue={0} onChange={(e)=>{
-          if(e.target.value !== '')setWorkout([...workout, e.target.value])
-        }}>
-          <option value={0}>Default</option>
-          <option value='peito'>Peito</option>
-          <option value='triceps'>Triceps</option>
-          <option value='costa'>Costa</option>
-          <option value='ombro'>Ombro</option>
-          <option value='biceps'>Biceps</option>
-          <option value='perna'>Perna</option>
-          <option value='cardio'>Cardio</option>
-        </select>
-        <select defaultValue={0} onChange={(e)=>{
-          if(e.target.value !== '')setWorkout([...workout, e.target.value])
-        }}>
-          <option value={0}>Default</option>
-          <option value='peito'>Peito</option>
-          <option value='triceps'>Triceps</option>
-          <option value='costa'>Costa</option>
-          <option value='ombro'>Ombro</option>
-          <option value='biceps'>Biceps</option>
-          <option value='perna'>Perna</option>
-          <option value='cardio'>Cardio</option>
-        </select>
-        <select defaultValue={0} onChange={(e)=>{
-          if(e.target.value !== '')setWorkout([...workout, e.target.value])
-        }}>
-          <option value={0}>Default</option>
-          <option value='peito'>Peito</option>
-          <option value='triceps'>Triceps</option>
-          <option value='costa'>Costa</option>
-          <option value='ombro'>Ombro</option>
-          <option value='biceps'>Biceps</option>
-          <option value='perna'>Perna</option>
-          <option value='cardio'>Cardio</option>
-        </select>
-        <select defaultValue={0}onChange={(e)=>{
-          if(e.target.value !== '')setWorkout([...workout, e.target.value])
-        }}>
-          <option value={0}>Default</option>
-          <option value='peito'>Peito</option>
-          <option value='triceps'>Triceps</option>
-          <option value='costa'>Costa</option>
-          <option value='ombro'>Ombro</option>
-          <option value='biceps'>Biceps</option>
-          <option value='perna'>Perna</option>
-          <option value='cardio'>Cardio</option>
-        </select>
-        <button>Submit</button>
-      </form>
+    <section>
+      <div className="card flex justify-content-center">
+          <form onSubmit={handleSubmit}> 
+            <MultiSelect value={selectedTreinos} panelStyle={{borderRadius:'4px', backgroundColor:'hsl(235, 21%, 21%)', padding:'10px',marginTop:'10px'}} onChange={(e) => setSelectedTreinos(e.value)} options={treinos} optionLabel="nome" display="comma"  
+            placeholder="Selecione oque você treinou." maxSelectedLabels={5} className="w-full md:w-20rem" style={{color:'white',backgroundColor:'hsl(235, 21%, 21%)' , width:'200px',height:'30px',borderRadius:'8px',fontWeight:'bolder',padding:'8px 5px 5px 6px', fontSize:'.8rem'}}/>
+            <button className={styles.button} >Registrar treino</button>
+          </form>
+      </div>
       <div className={styles.calendaryInfo}>
         <div className={styles.infoCards}>
-          {workouts && workouts.map((i,index)=>(
-            <div className={styles.calendaryCard} key={index}>
-                <p className={styles.cardDate}><span>Day</span> {i.date}</p>
-                <p className={styles.cardMonth}><span>Month: </span>{`${i.Month+1}`}</p>
-                <p>{i.Hour} H</p>
-                <div className={styles.cardWorkout} style={{display:'flex', gap:'3px'}}>
-                {i.workout.map((i,index)=>(
-                  <p key={index}>{i}</p>
-                  ))}
-                </div>
-            </div>
+           {workouts && workouts.map((i,index)=>(
+                    <div className={styles.calendaryCard} key={index}>
+                        <p className={styles.cardDate}><span>DIA</span> {i.date}</p>
+                          <p className={styles.cardMonth}><span>Mês: </span>{`${i.Month+1}`}</p>
+                            <p>{i.Hour}H</p>
+                          <IoIosFitness  fill="black"/>
+                       <div className={styles.cardWorkout} style={{display:'flex', gap:'3px'}}>
+                          {i.selectedTreinos.map((i,index)=>(
+                              <p key={index}>{i.nome}</p>
+                          ))}
+                      </div>
+                    </div>
           ))} 
-        </div>
-        <div className={styles.calendaryStatistic}>
-                  <p>Number of Training: {workouts.length}</p>
-                  {!seeMore ? <p style={{cursor:'pointer',color:'blue'}} onClick={()=>setSeeMore(true)}>Show more...</p> : ''}
-                  {seeMore ? 
-                  <div> 
-                  <p>Number of Chest Training: {chestWorkout.length}</p>
-                  <p>Number of biceps Training: {bicepsWorkout.length}</p>
-                  <p>Number of triceps Training: {tricepsWorkout.length}</p>
-                  <p>Number of back Training: {backWorkout.length}</p>
-                  <p>Number of cardio Training: {cardioWorkout.length}</p>
-                  <p>Number of legs Training: {legsWorkout.length}</p>
-                  <p>Number of ombro Training: {ombroWorkout.length}</p> 
-                  </div>
-                  :  ''}
-                  {seeMore ? <p style={{cursor:'pointer',color:'blue'}} onClick={()=>setSeeMore(false)}>Show Less...</p> : ''}
-        </div>
+         </div>
       </div>
     </section>
   )
