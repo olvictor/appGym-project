@@ -17,7 +17,6 @@ const Galery = () => {
   const [activeIndex, setActiveIndex] = useState(0);    
   const [activeShow, setActiveShow] = useState(false)
   const galleria = useRef(null);
-  const icon = <i className="pi pi-check"></i>
 
 const itemTemplate = (item) => {
     return <img src={item.src} alt={item.title} style={{ width: '100%', display: 'block' }} />;
@@ -44,7 +43,7 @@ useEffect(()=>{
   return <section className={`${styles.Galery} animeRigth`}>
   
     <div className="card flex justify-content-center">
-            <Galleria ref={galleria} showIndicators={true} value={photos} numVisible={7} style={{ maxWidth: '850px' }}
+            <Galleria ref={galleria} showIndicatorsOnItem={true} value={photos} numVisible={7} style={{ maxWidth: '850px' }}
             activeIndex={activeIndex} onItemChange={(e) => setActiveIndex(e.index)}
             circular fullScreen showItemNavigators showThumbnails={false} item={itemTemplate} thumbnail={thumbnailTemplate} />
             <div style={{ maxWidth: '100%', maxHeight:'auto', display:'flex', gap:'10px',marginTop:'50px',flexWrap:'wrap' }}>

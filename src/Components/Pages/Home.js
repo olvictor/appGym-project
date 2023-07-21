@@ -13,18 +13,17 @@ const Home = () => {
       <div className={styles.main__content}>
         <div className={styles.main__text + " animeDown"}>
           <TypeAnimation
-            sequence={["", 1000, "Get the best part of you day !"]}
+            sequence={["", 1000, "Tenha a melhor parte do seu dia!"]}
             wrapper="h1"
             cursor={true}
             repeat={0}
             style={{ fontSize: "3em", display: "inline-block", color: "#fff" }}
           />
-          <h2>- you fit here</h2>
+          <h2>- você se encaixa aqui</h2>
           <p>
-            We provide serious fitness but within a fun and friendly, safe
-            space.
+          Um pequeno progresso é melhor que nenhum progresso. Siga firme, continue e não desista.
           </p>
-          <Link to="/login">Join now</Link>
+          <Link to="/login">Entrar</Link>
         </div>
         <div className={styles.img}>
         <img

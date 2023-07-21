@@ -5,6 +5,9 @@ import 'primereact/resources/primereact.min.css'; //core css
 import 'primeicons/primeicons.css'; //icons
 import { IoIosFitness } from "react-icons/io";
 
+import Chart from "react-apexcharts";
+
+
 const Calendary = () => {
 
   const [selectedTreinos, setSelectedTreinos] = useState(null);
@@ -22,7 +25,7 @@ const Calendary = () => {
   ]
   const [workout,setWorkout] = useState([])
   const [workouts,setWorkouts] = useState([]);
-  // const [seeMore,setSeeMore] = useState(false);
+  const [seeMore,setSeeMore] = useState(false);
   // const chestWorkout = workouts.filter((item)=> item.workout.includes('Peito'));
   // const bicepsWorkout = workouts.filter((item)=> item.workout.includes('Biceps'));
   // const tricepsWorkout = workouts.filter((item)=> item.workout.includes('Triceps'));
@@ -49,7 +52,14 @@ const Calendary = () => {
     }
    setWorkouts([...workouts, training])
   }  
-   useEffect(()=>{
+  const data = {
+    options: {
+        labels: ['peixe','frango','carne']
+      },
+      series: [20,30,10],
+    
+}
+  useEffect(()=>{
     const getWorkout = JSON.parse(localStorage.getItem('workout'));
     if(getWorkout)setWorkouts(getWorkout)
     },[])
@@ -58,7 +68,7 @@ const Calendary = () => {
   },[workouts])
 
   return (  
-    <section>
+    <section className={styles.Calendary}>
       <div className="card flex justify-content-center">
           <form onSubmit={handleSubmit}> 
             <MultiSelect value={selectedTreinos} panelStyle={{borderRadius:'4px', backgroundColor:'hsl(235, 21%, 21%)', padding:'10px',marginTop:'10px'}} onChange={(e) => setSelectedTreinos(e.value)} options={treinos} optionLabel="nome" display="comma"  
@@ -82,6 +92,22 @@ const Calendary = () => {
                     </div>
           ))} 
          </div>
+      </div>
+      <div className={styles.estatisticas}>
+                {!seeMore ? 
+                <div> 
+                  <h2>Deseja conferir mais estatisticas do seu treino?</h2>
+                  <button onClick={()=>setSeeMore(true)}>Ver mais</button>
+                </div> :
+                
+                <Chart 
+                  options={data.options}
+                  series={data.series}
+                  type="donut"
+                  width="400"
+                />
+                }      
+
       </div>
     </section>
   )

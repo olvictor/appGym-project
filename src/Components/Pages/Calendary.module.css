@@ -1,8 +1,10 @@
-.calendarySection{
+/* .calendarySection{
     display: flex;
     flex-direction: column;
+} */
+.Calendary{
+    display: flex;
 }
-
 .calendaryInfo{
  display: flex;
  margin-top: 50px;
@@ -76,4 +78,8 @@ color: black;
 }
 .button:hover{
     background-color: hsl(210, 50%, 50%);
+}
+
+.estatisticas{
+    grid-column: 2/3
 }
