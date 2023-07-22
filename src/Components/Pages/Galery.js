@@ -8,6 +8,7 @@ import styles  from './Galery.module.css'
 import { Image } from 'primereact/image';
 import 'primereact/resources/primereact.min.css'; //core css
 import 'primeicons/primeicons.css'; //icons
+import 'primereact/resources/themes/lara-light-indigo/theme.css';
 
 const Galery = () => {
   const {loading,request,error} = UseFetch()
@@ -23,11 +24,10 @@ const itemTemplate = (item) => {
 }
 
 const thumbnailTemplate = (item) => {
-    return <img src={item.thumbnailImageSrc} alt={item.alt} style={{ display: 'block' }} />;
+    return <img src={item.src} alt={item.alt} style={{ display: 'block' }} />;
 }
 
 useEffect(()=>{
-  
   const getPhotos = async() =>{
     const {url,options} = PHOTOS_GET({user: data.id, total:-1 ,page: 1})
     const {json, response} = await request(url,options)
